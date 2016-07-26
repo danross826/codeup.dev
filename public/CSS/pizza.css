@@ -1,0 +1,48 @@
+body {
+	background: #CD5C5C
+}
+.toppingimg {
+	width: 250px;
+	height: 200px;
+}
+.underline1{
+	text-decoration: underline;
+}
+.text-indent1 {
+	text-align: center;
+}
+.font {
+	font-size: 20px;
+	color: red
+}
+h2	{
+	text-align: center;
+}
+.center{
+	text-align: center;
+}
+#pizzacircle{
+	display: block;
+	margin: 0 auto;
+}
+#orderinfo label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 550px;
+    text-align: right;
+}
+#orderinfo input{
+  display: inline-block;
+  float: left;
+}
+.topbackground1{
+	background-image:url(../IMG/NYPizza.jpeg);
+	background-repeat: 2;
+	background-size: contain;
+	background-size: percentage 100%;
+}
+.topbackground2{
+	background-image:url(../IMG/chicagonight.jpeg);
+	background-size: contain;
+}

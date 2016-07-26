@@ -1,0 +1,34 @@
+h1 {
+	color: blue;
+	text-decoration: underline;
+}
+h2 {
+	color: blue;
+	text-decoration: underline;
+}
+body {
+	background-image:url(../IMG/Dark-Tower-The-Gunslinger.jpg);
+	font-family: sans-serif;
+}
+ul,ol,dl { 
+	list-style: square;
+	color: red; }
+table,td {
+	border: 5px solid red;
+	color: red;
+}
+p{
+	color: red;
+}
+a:link{
+	color: maroon
+}
+a:active{
+	color: white
+}
+a:hover{
+	color: yellow
+}
+a:visited{
+	color: orange
+}

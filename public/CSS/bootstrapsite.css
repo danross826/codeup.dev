@@ -1,0 +1,36 @@
+#titlesite{
+	font-size: 50px;
+}
+h1{
+	color: #020887;
+}
+p.intro-text{
+	color: #38369A;
+}
+
+.container{
+	color: #7CA5B8;
+}
+a.navbar-brand, a.page-scroll{
+	color: #C6EBBE;
+}
+span.network-name{
+	color: #A9DBB8;
+	border: #A9DBB8
+}
+a{
+	color: #C6EBBE;
+}
+nav.navbar.navbar-custom.navbar-fixed-top{
+	background-color: black;
+}
+.skillslist{
+	font-size: 20px;
+	text-align: left;
+	position: relative;
+	left: 10em;
+}
+@media only screen and (max-device-width: 480px) {
+		p.intro-text {
+			width: 400px;
+		}
