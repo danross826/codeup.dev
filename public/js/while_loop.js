@@ -4,19 +4,17 @@ var allCones = Math.floor(Math.random() * 50) + 50;
 
 do {
 	var cones = Math.floor(Math.random() * 5) + 1;
-		if (allCones>=cones){
+	console.log("You want to purchase "+cones+" cones.")
+		if (allCones>=cones) {
+			console.log("I have sold you "+cones+" cones.");
 			allCones=allCones-cones;
-			if (allCones>cones) {
-				console.log("I have sold you "+cones+" cones. I have "+allCones+" left.");
-			} else if (allCones==cones){
-				console.log("I have sold you "+cones+" cones. I have "+allCones+" left.");
-			} else if (allCones<cones) {
-				console.log("I don't have " + cones + " cones to sell you. I have " + allCones + " left.");
-			}
-		}
-		else (console.log("I only have "+cones+" left.  I'll sell you the rest then go home."))
+			console.log("I have "+allCones+" left.")
+		} else {
+			console.log("I don't have that many cones to sell you.")
+	}
 
-} while (allCones>=cones)
+} while (allCones>0)
+	console.log("I have no cones to sell you.")
 
 var i=2
 
