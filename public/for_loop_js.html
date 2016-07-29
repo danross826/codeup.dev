@@ -1,0 +1,53 @@
+<html>
+<head>
+
+</head>
+<body>
+<script type="text/javascript">
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+    function isEven(value) {
+        if (value%2 == 0)
+            return true;
+        else
+            return false;
+    }
+
+for (var i=1; i<= 10; i++){
+    var iString=i.toString();
+    iString=iString.replace("10", "0");
+    console.log(iString.repeat(i));
+}
+
+//random number
+var r=getRandomInt(1, 10)
+//for loop
+
+    for (var x=1; x<=10;x=x+1) {
+        var y = r * x
+        console.log(r+"x"+x+"="+y)
+    }
+
+
+    for(var answer=100; answer>=5; answer-=5){
+        console.log(answer)
+    }
+
+
+
+    for(var fake=0; fake<=10; fake=fake+1){
+        var variable=getRandomInt(20, 200)
+        if(variable%2==0) {
+            console.log(variable + " is even.")
+        }else {
+            console.log(variable + " is odd.")
+        }
+    }
+
+
+
+</script>
+</body>
+</html>
