@@ -22,22 +22,22 @@ var amountPaid = 60;
 
 	switch (luckyNumber){
 	case 0:
-		console.log(amountPaid);
+		console.log("You pay $"+(amountPaid));
 		break;
 	case 1:
-		console.log(amountPaid*.1);
+		console.log("You pay $"+(amountPaid*.1));
 		break;
 	case 2:
-		console.log(amountPaid*.25);
+		console.log("You pay $"+(amountPaid*.25));
 		break;
 	case 3:
-		console.log(amountPaid*.35);
+		console.log("You pay $"+(amountPaid*.35));
 		break;
 	case 4:
-		console.log(amountPaid*.5);
+		console.log("You pay $"+(amountPaid*.5));
 		break;
 	case 5:
-		console.log(amountPaid*0);
+		console.log("You pay $"+(amountPaid*0));
 		break;
 }
 

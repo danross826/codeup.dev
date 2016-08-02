@@ -1,0 +1,9 @@
+"use strict"
+var condition="null";
+if (condition==true){
+    console.log("condition was true");
+}
+    else if (condition==="tomato"){
+        console.log("condition is false");
+}else if condition === false
+    console.log()

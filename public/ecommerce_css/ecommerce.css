@@ -1,0 +1,53 @@
+
+.item{
+	height: 40em;
+	width: 65em;
+}
+
+.higher#socrates{
+	height:30em;
+}
+
+.col-lg-12{
+	color: yellow;
+	background-color: black;
+}
+
+h1{
+	text-align: center;
+	font-family: 'Lobster', cursive;
+	background-color: black;
+	color:yellow;
+}
+h4{
+	color: #337ab7
+}
+div.caption h4, a{
+	color:orange;
+}
+body {
+	background-image: url(../IMG/modernartp7.jpg);
+}
+div.thumbnail{
+	background-color: black;
+}
+div.caption {
+	background-color: black;
+	color:yellow;
+}
+div.ratings {
+	background-color: black;
+}
+div.caption>p {
+	background-color: black;
+	color:yellow;
+}
+h4.pull-right.align-left{
+	font-size: 1em;
+	position: relative;
+	bottom: 1em;
+}
+
+#zeusg{
+	font-size: 5;
+}

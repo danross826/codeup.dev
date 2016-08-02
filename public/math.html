@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+
+
+
+
+         function isItANumber(number){
+         var bool = (typeof(number)=== "number") ? true: false;
+         return bool}
+
+         function noZero(number) {
+             var answer=(number===0)? true: false;
+             return answer
+         }
+
+
+        function sumTwo(number1,number2) {
+            if (isItANumber(number1)&&isItANumber(number2)){
+                var answer=number1+number2;
+                return answer;
+            } else{
+                return "This isn't a number!"
+            }
+        }
+
+         function threeGradeAverage(number,numberTwo,numberThree) {
+             var answer=(number+numberTwo+numberThree)/3;
+             return answer
+
+         }
+
+    console.log(sumTwo(2,8));
+
+    function subtraction(number1,number2) {
+       if (isItANumber(number1)&&isItANumber(number2)) {
+           var answer = number1 - number2;
+           return answer
+       } else{
+           return "This isn't a number!"
+       }
+    }
+    console.log(subtraction(56,34));
+
+    function multiplyTwo(number1,number2) {
+        if (isItANumber(number1)&&isItANumber(number2)) {
+            var answer = number1 * number2;
+            return answer
+        } else{
+            return "This isn't a number!"
+        }
+
+    }
+
+    console.log(multiplyTwo(2,70))
+
+    function divideTwo(number1,number2) {
+        if (noZero(number2)){
+            return "You can't divide by zero!"
+         }else if(isItANumber(number1)&&isItANumber(number2)){
+             var answer=number1/number2
+             return answer
+        }else {
+        return "This isn't a number!"}
+
+    }
+    console.log(divideTwo(70,2))
+
+    function square(number) {
+        if (isItANumber(number)) {
+            var answer = number * number;
+            return answer
+        } else {
+            return "This isn't a number!"
+        }
+
+    }
+    console.log(square(5))
+
+    function addTwoSquares(number1,number2) {
+        if(isItANumber(number1)&&isItANumber(number2)) {
+            var answer = (sumTwo(square(number1), square(number2)));
+            return answer
+        } else{
+            return "This isn't a number!"
+        }
+
+    }
+
+
+    console.log(addTwoSquares(3,6));
+
+    response=prompt("Would you like to add, subtract, divide, multiply, average 3 numbers, or square a number?");
+
+    switch (response){
+        case "add":
+            addOne=prompt("Enter first number.");
+            addTwo=prompt("Enter second number.");
+            console.log(sumTwo(parseInt(addOne),parseInt(addTwo)));
+            break;
+        case "subtract":
+            subtractOne=prompt("Enter first number.");
+            subtractTwo=prompt("Enter second number.");
+            console.log(subtraction(parseInt(subtractOne),parseInt(subtractTwo)));
+            break;
+        case "divide":
+            dividerOne=prompt("Enter first number.");
+            dividerTwo=prompt("Enter second number.");
+            console.log(divideTwo(parseInt(dividerOne),parseInt(dividerTwo)));
+            break;
+        case "multiply":
+            multiplierOne=prompt("Enter first number.");
+            multiplierTwo=prompt("Enter second number.");
+            console.log(multiplyTwo(parseInt(multiplierOne),parseInt(multiplierTwo)));
+            break;
+        case "average 3 numbers":
+            averageOne=prompt("Enter first number.");
+            averageTwo=prompt("Enter second number.");
+            averageThree=prompt("Enter third number.")
+            console.log(threeGradeAverage(parseInt(averageOne),parseInt(averageTwo),parseInt(averageThree)));
+            break;
+        case "square a number":
+            squareInt=prompt("Enter first number.");
+            console.log(square(parseInt(squareInt)));
+            break;
+        default:
+            console.log("That's an invalid input!");}
+
+
+</script>
+</html>

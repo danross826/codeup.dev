@@ -1,0 +1,46 @@
+<html>
+<head>
+
+</head>
+<body>
+<script type="text/javascript">
+
+    'use strict';
+
+
+    var random=Math.floor((Math.random()*50)+1)
+
+while(random>=≠≠50){
+        console.log("We don't have a number to skip!")
+    if (random % 2 == 0){
+            break;
+        random=Math.floor((Math.random()*50)+1)
+    }
+}
+
+
+    for (var i = 1; i < 50; i++) {
+
+
+        if (i % 2 == 0) {
+            // number isn't odd
+            // even numbers aren't as cool
+            // skip the rest of the loop and continue with the next iteration
+            continue;
+        }
+        if (i == random) {
+
+            console.log('Yikes! We are skipping '+random+"!");
+
+            // use the break keyword to exit from the while loop
+            continue;
+
+            // nothing after the break will get processed
+            console.log('You will never see this line.');
+        }
+        console.log('Here is a lovely odd number: ' + i);
+    }
+
+</script>
+</body>
+</html>
