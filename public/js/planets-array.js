@@ -11,6 +11,10 @@
         console.log("---- ---- ---- ----");
     }
 
+    function getRandomInt(max, min) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
     logPlanets();
 
     console.log('Adding "The Sun" to the beginning of the planets array.');
@@ -56,4 +60,12 @@
     // TODO: Read the console.log() statement above. Write code to perform the step it describes.
     planets.sort();
     logPlanets();
+
+    var numbers=[1,2,3,4];
+
+// you always want to multiply the random numbers times the length of the array to get a random item in the array
+var randomIndex=Math.floor(Math.random()*numbers.length)
+
+    console.log(randomIndex)
+
 })();

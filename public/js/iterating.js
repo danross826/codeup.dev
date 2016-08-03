@@ -28,5 +28,6 @@ names.forEach(function (element, index, array) {
 });
 
 
+// push adds to the end of the array, pop takes away from the end of the array, shift takes away from the beginning of the array, and unshift adds to beginning
 
 // })();
