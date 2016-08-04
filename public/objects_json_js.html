@@ -1,0 +1,63 @@
+<html>
+<head>
+<body>
+
+
+<script type="text/javascript">
+    'use strict';
+
+
+    var books=[
+                {"title":"hungerGames",
+                    "author":{
+                "firstName": "Suzanne",
+                "lastName": "Collins"
+            }},
+                {"title":"dracula",
+                    "author":{
+                "firstName": "Bram",
+                "lastName": "Stoker"
+            }},
+                {"title":"interviewWithTheVampire",
+                    "author":{
+                "firstName": "Anne",
+                "lastName": "Rice"
+            }},
+                {"title":"theOdyssey",
+                    "author":{
+                "firstName": "Homer",
+                "lastName": "Unknown"
+            }},
+                {"title":"darkTower",
+                "author":{
+                "firstName": "Stephen",
+                "lastName": "King"
+            }}]
+    ;
+
+        console.log(books);
+
+    books.forEach(function(element,index){
+        console.log("Book #"+(index+1));
+        console.log("Title: "+element.title);
+        console.log("Author: "+element.author.firstName+element.author.lastName);
+    });
+
+//    var profiles=[
+//        {"Name":{
+//            "FirstName":"Michelle",
+//            "SecondName":"Benton"
+//        },
+//        "HairColor":"Brown",
+//        "EyeColor":"Brown",
+//        "Height"}
+//    ]
+
+</script>
+</body>
+</head>
+
+
+
+
+</html>
