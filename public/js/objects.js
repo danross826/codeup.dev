@@ -40,4 +40,14 @@ var car={
 
 }
 
+var world={
+    "nations":[
+       "Allemain": {},
+        "Atticus":{},
+        "Bretonia":{},
+        "Capet":{}
+        {}
+    ]
+}
+
 // })();

@@ -1,4 +1,4 @@
-// (function(){
+(function(){
     "use strict";
 
     var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
@@ -17,7 +17,17 @@
 
 
 
+
     // Bonus: Create a second string that would display your planets in an undordered list.
     //        You will need an opening AND closing <ul> tags around the entire string, and <li> tags around each planet.
     //        console.log() your results.
-// })();
+
+
+    var planetList=planetsArray.join("</li><li>");
+    planetList="<ul><li>"+planetList+"</li></ul>";
+    console.log(planetList);
+
+
+
+
+})();
