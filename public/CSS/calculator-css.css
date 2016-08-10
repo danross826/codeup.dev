@@ -1,0 +1,81 @@
+
+a{
+    display: block;
+    overflow: scroll;
+}
+body{
+    background-image: url("../IMG/mathboard.jpg");
+    background-size: 100%;
+    background-repeat: repeat;
+    min-height: auto;
+    min-width: auto;
+}
+
+input{
+    color: white;
+    font-size: 1em;
+    width: 6em;
+    height: 4em;
+    overflow: scroll;
+    background-color: black;
+    text-align: center;
+    min-height: auto;
+    min-width: auto;
+}
+textarea{
+    background-color: black;
+    color: white;
+    text-align: center;
+    min-height: auto;
+    min-width: auto;
+}
+h6{
+    color:white;
+}
+
+.numberoperator{
+    appearance: button;
+    border: thick;
+    -moz-appearance: button;
+    -webkit-appearance: button;
+    text-decoration: none;
+    font: menu;
+    color: ButtonText;
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 2em;
+    height: 2em;
+    width: 2em;
+    min-height: 2em;
+    min-width: 2em;
+}
+.number{
+    position: relative;
+    right: 22px;
+    width: 7em;
+}
+
+#display{
+    position: relative;
+    right: 1em;
+}
+#titles{
+    display: flex;
+    flex-direction: row;
+}
+#disp2{
+    width: 5em;
+    position: relative;
+    right:6px;
+}
+#alternateNotations{
+    width: 19em;
+}
+#btnrpn{
+    font-size: 2em;
+    padding: 2px 0px;
+}
+#btnhex{
+    font-size: 2em;
+    padding: 2px 0px;
+}

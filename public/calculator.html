@@ -1,0 +1,95 @@
+<html>
+<head>
+    <title>Dan's Calculator</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap.css">
+    <link href="../CSS/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!--Custom CSS-->
+    <link href="CSS/calculator-css.css" rel="stylesheet">
+
+</head>
+<body class="row">
+<div class="col-sm-offset-3 col-sm-6">
+<!--This will be where the info is displayed-->
+<div id="display">
+    <div class="row" >
+        <div class="col-sm-2 col-sm-offset-3">
+            <br>
+            <input class="number" required="true" value="" readonly="true" id="disp1" placeholder="First #"></input>
+        </div>
+        <div class="col-sm-2">
+            <br>
+            <input required="true" value="" readonly="true" id="disp2" placeholder="Operator"></input>
+        </div>
+        <div class="col-sm-2">
+            <br>
+            <input class="number" required="true" value="" readonly="true" id="disp3" placeholder="Second #"></input>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+        <textarea id="alternateNotations" placeholder="Answer" readonly="true"></textarea>
+        </div>
+    </div>
+</div>
+
+<!--this is where the as begin-->
+<div class="row" id="dontmove">
+    <div class="col-sm-6 col-sm-offset-3">
+        <a class="numberoperator" id="btn1">1</a>
+        <a class="numberoperator" id="btn2">2</a>
+        <a class="numberoperator" id="btn3">3</a>
+        <a class="numberoperator" id="btn+">+</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-sm-offset-3">
+        <a class="numberoperator" id="btn4">4</a>
+        <a class="numberoperator" id="btn5">5</a>
+        <a class="numberoperator" id="btn6">6</a>
+        <a class="numberoperator" id="btn-">-</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-sm-offset-3">
+        <a class="numberoperator" id="btn7">7</a>
+        <a class="numberoperator" id="btn8">8</a>
+        <a class="numberoperator" id="btn9">9</a>
+        <a class="numberoperator" id="btn*">*</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-sm-offset-3">
+        <a class="numberoperator" id="btndecimal">.</a>
+        <a class="numberoperator" id="btn0">0</a>
+        <a class="numberoperator" id="btn=">=</a>
+        <a class="numberoperator" id="btn/">/</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-sm-offset-3">
+        <a class="numberoperator" id="btnc">C</a>
+        <a class="numberoperator" id="btnnegative">+/-</a>
+        <a class="numberoperator" id="btnrooting">√</a>
+        <a class="numberoperator" id="btncaret">^</a>
+    </div>
+</div>
+<div class="row">
+      <div class="col-lg-6 col-sm-offset-3">
+            <a class="numberoperator" id="btnpercentage">%</a>
+          <a class="numberoperator" id="btnrpn">RPN</a>
+          <a class="numberoperator" id="btnbinary">BIN</a>
+          <a class="numberoperator" id="btnhex">HEX</a>
+      </div>
+</div>
+</div>
+<script src="js/calculator-js.js"></script>
+</body>
+</html>
