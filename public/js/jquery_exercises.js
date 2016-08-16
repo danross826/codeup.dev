@@ -10,31 +10,28 @@ $(document).ready(function () {
 
 
 
-    setTimeout(function(){ alert($('h1').text()); }, 3000);
+$('h1').click(function () {
+    $('h1').css("background-color","salmon")
+});
 
-
-
-
-    $(".codeup").css("border-style","solid");
-
-    $(".codeup").css("border-width","1 px");
-
-
-    $("button").hover(function () {
-        $('button').css("position","relative");
-        $('button').css("left","20px")
+    $('p').dblclick(function () {
+        $('p').css("font-size","18px")
     });
 
 
 
 
-    $('li').css("font-size","20px");
-    $('h1,p,li').css('background-color','yellow');
 
 
 
 
 
+
+    $("li").hover(function(){
+        $(this).css("color", "red");
+    }, function(){
+        $(this).css("color", "white");
+    });
 
 
 });
