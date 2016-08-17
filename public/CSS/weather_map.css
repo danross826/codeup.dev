@@ -1,0 +1,15 @@
+body{
+	background-image: url('../IMG/stormOverSea.jpg');
+}
+
+.days	{
+	border: 10px solid black;
+}
+
+#map-canvas {
+    width: 770px;
+    height: 481px;
+}
+#visTitle{
+	text-decoration: underline;
+}
