@@ -75,11 +75,35 @@ const myAPIKey='7d51793cacce60ea7f282432725c6e5b';
 
 //APIfunction///////////////////////////////////////////////////
 
-var locationChanger=function (event) {
-    lat=$("#lat").val();
-    lon=$('#lon').val();
-    console.log(lat);
-    console.log(lon);
+
+    var lat=-25.363882;
+    var lon=131.044922;
+
+        var position={lat:parseFloat(lat),lng:parseFloat(lon)};
+        var mapOptions = {
+
+            zoom: 1,
+
+            center: {
+                lat: parseFloat(lat),
+                lng: parseFloat(lon)
+            }
+        };
+
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+        
+$('#map-canvas').one("click",function(){
+        var marker = new google.maps.Marker({
+        position: myLatlng, 
+        map: map,
+        draggable:true
+        });
+
+    google.maps.event.addListener(marker,'dragend',function() {
+        lat= marker.position.lat();
+        lon= marker.position.lng();
+
 
     $.get('http://api.openweathermap.org/data/2.5/forecast/daily?',{
         APPID:myAPIKey,
@@ -87,47 +111,42 @@ var locationChanger=function (event) {
         lon:lon,
         cnt:3,
         units:"imperial"
+
     }).done(function (data) {
-        $('#forecasts').empty();
+        if(data.cod=="404"){
+            alert("No Data Found")
+        }
         console.log(data);
+        $('#forecasts').empty();
         temperature(data);
         weather(data);
         humidity(data);
         wind(data);
         pressure(data);
-        var position={lat:parseFloat(lat),lng:parseFloat(lon)};
-        var mapOptions = {
-
-            zoom: 10,
-
-            center: {
-                lat: parseFloat(lat),
-                lng: parseFloat(lon)
-            }
+        for (var i =0; i <= 2; i++) {
+            var weatherList=data.list[i].weather[0].id;
+           if (200<=weatherList&&weatherList<=232) {
+            $('#day'+(i+1)).css('background-image','url("../movies/thunderstorm.gif")')
+           }if (300<=weatherList&&weatherList<=321) {
+            $('#day'+(i+1)).css('background-image','url("../movies/drizzle.gif")')
+           }if (500<=weatherList&&weatherList<=531) {
+            $('#day'+(i+1)).css('background-image','url("../movies/rainumbrella.gif")')
+           }if (600<=weatherList&&weatherList<=622) {
+            $('#day'+(i+1)).css('background-image','url("../movies/snowing.gif")')
+           }if (701<=weatherList&&weatherList<=781) {
+            $('#day'+(i+1)).css('background-image','url("../movies/mist.gif")')
         };
-        var lonlat = new OpenLayers.LonLat(parseFloat(lon), parseFloat(lat));
-        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-            // for OSM layer
-        var mapnik = new OpenLayers.Layer.OSM();
-    // Make weather station layer. Client clastering of markers is using. 
-    var stations = new OpenLayers.Layer.Vector.OWMStations("Stations");
-    // Make weather layer. Server clastering of markers is using.
-    var city = new OpenLayers.Layer.Vector.OWMWeather("Weather");
+    };
 
-    // Add weather layers to map
-    map.addLayers([mapnik, stations, city]);
-        var marker = new google.maps.Marker({
-            position: position,
-            map: map
-        });
 
     }).fail(function (xhr,err,msg) {
         alert('Something went wrong!')
     });
+        });    
+            });
 
-};
 
-$('#submit').click(locationChanger);
+
 
 
 
