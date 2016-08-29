@@ -92,10 +92,10 @@ const myAPIKey='7d51793cacce60ea7f282432725c6e5b';
 
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
         var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-        
+
 $('#map-canvas').one("click",function(){
         var marker = new google.maps.Marker({
-        position: myLatlng, 
+        position: myLatlng,
         map: map,
         draggable:true
         });
@@ -142,8 +142,9 @@ $('#map-canvas').one("click",function(){
     }).fail(function (xhr,err,msg) {
         alert('Something went wrong!')
     });
-        });    
+        });
             });
+
 
 
 
