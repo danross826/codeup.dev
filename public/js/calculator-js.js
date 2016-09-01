@@ -124,6 +124,7 @@ var equal=function (event) {
     if ((firstDisp.value!=="")&&(thirdDisp.value!=="")&&(secondDisp.value=="√")) {
         rooting();
     }
+
     firstDisp.value='';
     secondDisp.value='';
     thirdDisp.value='';

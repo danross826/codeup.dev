@@ -4,7 +4,7 @@ a{
     overflow: scroll;
 }
 body{
-    background-image: url("../IMG/mathboard.jpg");
+    background-color: white;
     background-size: 100%;
     background-repeat: repeat;
     min-height: auto;
