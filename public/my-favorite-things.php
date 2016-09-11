@@ -1,19 +1,18 @@
 <?php
 
-// function favoriteThingGenerator(){
 
-// $favoriteThings=["roleplaying", "comics", "sci-fi", "fantasy", "good food"];
 
-// $randomFavoriteThing=array_rand($favoriteThings, 1);
-
-// $result="One of my favorite things is " . $favoriteThings[$randomFavoriteThing] . "." . PHP_EOL;
-
-// return $result;
-// }
+function pageController(){
 
 $favoriteThings=["roleplaying", "comics", "sci-fi", "fantasy", "good food"];
 
+$data = array('favoriteThings' =>$favoriteThings);
 
+return $data;
+
+}
+
+extract(pageController());
 
 
 
