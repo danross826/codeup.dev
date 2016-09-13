@@ -1,44 +1,21 @@
 <?php
 
+session_start();
 
+function pageController(){
+	// check to see if the user is aint logged in
+	if (!isset($_SESSION['username'])) {
+		// send them back to login
+		header("Location: login.php");
+		die();
+	}
+	$data=[];
+	$data['username']=$_SESSION['username'];
+	
+	return $data;
+}
 
-
-
-// function pageController(){
-
-
-
-// 	$data = array('username' => $username, 'password'=>$password, 'redirect'=>$redirect);
-
-// 	return $data;
-// }
-
-// session_start();
-
-
-
-// extract(pageController());
-
-
-
-// if ($username!=="guest"||$password!=="cat") {
-// 	header("Location: $redirect");
-// 	clearSession();
-//     die;
-// }else{
-// 	$_SESSION['logged_in_user']=$username;
-// 	$_SESSION['user_is_logged_in']=true;
-// }
-
-// if ($_SESSION['logged_in_user']=$username&&$_SESSION['user_is_logged_in']=true) {
-// 	# code...
-// }
-
-// $test=var_dump($_SESSION);
-
-
-
-
+extract(pageController());
 
 ?>
 
@@ -65,11 +42,12 @@
 		<div class="row">
 			<div class="col-md-3 col-md-offset-5">
 				<h1>Authorized</h1>
+				<h2><?php echo "Hello, " . $username . PHP_EOL; ?></h2>
+				<a href="logout.php">Logout</a>
 			</div>
 		</div>
 	</div>
 
-	<?php echo $test; ?>
   
 </body>
 </html>

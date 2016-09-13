@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once('functions.php');
+
 function pageController(){
 
 
@@ -27,28 +29,27 @@ function pageController(){
 
 }
 
-$sessionId = session_id();
-
 extract(pageController());
 
-function clearSession()
-{
-    session_unset();
-    session_destroy();
-    session_regenerate_id();
-    session_start();
-}
-
 if (!empty($_POST)) {
-	if ($username=="guest"&&$password=="cat") {
+	if ($username==="guest"&&$password==="cat") {
+		$_SESSION['user_is_logged_in']=true;
+		$_SESSION['username']=$_POST['username'];
 		header('Location: authorized.php');
+		die();
 	}else{
 		$display="";
 
 	}
 }
 
-$sessionId = session_id();
+// check if the user is logged in and forward them to authorized page
+
+
+if (isset($_SESSION['username'])) {
+		header('Location: authorized.php');
+		die();
+}
 
 
 
