@@ -2,19 +2,20 @@
 
 require_once('functions.php');
 
+require_once('../input.php');
 
 function pageController(){
 
-	if (isset($_GET['counter'])) {
-		$counter=$_GET['counter'];
+	if (input::has('counter')) {
+		$counter=input::get('counter');
 	}else{
 		$counter=0;
 	}
 
 	$lostGame="";
 
-	if (isset($_GET['ball'])) {
-		if ($_GET['ball']=="hit") {
+	if (input::has('ball')) {
+		if (input::get('ball')=="hit") {
 			$counter++;
 		}else{
 			$lostGame="You Lose!";
@@ -23,6 +24,7 @@ function pageController(){
 			}
 		}
 	}
+
 
 	$data = array('counter' =>$counter ,'lostGame'=>$lostGame );
 	return $data;
@@ -34,6 +36,9 @@ function pageController(){
 
 
 extract(pageController());
+
+// var_dump(escape("cat"));
+
 
 
 ?>
@@ -56,12 +61,12 @@ extract(pageController());
 </head>
 
 <body>
-  <a href=<?php echo "http://codeup.dev/pong.php?ball=hit&counter=" . $counter?>>Hit</a>
-  <a href=<?php echo "http://codeup.dev/pong.php?ball=miss&counter=" . $counter?>>Miss</a>
+  <a href=<?php echo escape("http://codeup.dev/pong.php?ball=hit&counter=" . $counter)?>>Hit</a>
+  <a href=<?php echo escape("http://codeup.dev/pong.php?ball=miss&counter=" . $counter)?>>Miss</a>
   <div><?php if ($lostGame!="") {
-  	echo $lostGame;
+  	escape($lostGame);
   }?></div>
 
-  <div><?php echo "" . $counter;  ?></div>
+  <div><?php echo escape("" . $counter);  ?></div>
 </body>
 </html>

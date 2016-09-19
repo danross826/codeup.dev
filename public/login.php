@@ -2,28 +2,26 @@
 
 session_start();
 
-require_once('functions.php');
+require_once('../Input.php');
+
+require_once('../Auth.php');
 
 function pageController(){
-
 
 
 	$display="hidden";
 
 
+	$redirectIfLoggedIn="Location: authorized.php";
+
+	$username = Input::has('username') ? Input::get('username') : '';
+	$password = Input::has('password') ? Input::get('password') : '';
 
 
-
-	$redirect="http://codeup.dev/login.php";
-
-	$username = isset($_POST['username']) ? $_POST['username'] : '';
-	$password = isset($_POST['password']) ? $_POST['password'] : '';
-
-
-
-
-
-	$data = array('display'=>$display, 'username'=>$username, 'password'=>$password);
+	$data = array('display'=>$display, 
+		'username'=>$username, 
+		'password'=>$password, 
+		'redirectIfLoggedIn'=>$redirectIfLoggedIn);
 
 	return $data;
 
@@ -31,12 +29,11 @@ function pageController(){
 
 extract(pageController());
 
+
+
 if (!empty($_POST)) {
-	if ($username==="guest"&&$password==="cat") {
-		$_SESSION['user_is_logged_in']=true;
-		$_SESSION['username']=$_POST['username'];
-		header('Location: authorized.php');
-		die();
+	if (Auth::attempt($username,$password)) {
+		Auth::redirect($redirectIfLoggedIn);
 	}else{
 		$display="";
 
@@ -46,14 +43,13 @@ if (!empty($_POST)) {
 // check if the user is logged in and forward them to authorized page
 
 
-if (isset($_SESSION['username'])) {
-		header('Location: authorized.php');
-		die();
+if (Auth::check()) {
+		Auth::redirect($redirectIfLoggedIn);
 }
 
 
 
-$test=var_dump($_SESSION);
+
 
 
 
@@ -71,6 +67,8 @@ $test=var_dump($_SESSION);
 
 <!doctype html>
 
+
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -86,6 +84,8 @@ $test=var_dump($_SESSION);
 </head>
 
 <body>
+
+	<?php var_dump($_SESSION);  ?>
 
 	<div class="container">
 		<div class="row">
@@ -116,7 +116,9 @@ $test=var_dump($_SESSION);
 		</div>
 	</div>
 
-	<?php echo $test; ?>
+	<?php echo var_dump($redirectIfLoggedIn);  ?>
+
+
   
   
 </body>

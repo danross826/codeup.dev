@@ -2,12 +2,18 @@
 
 session_start();
 
+require_once('../Input.php');
+
+require_once('../Auth.php');
+
+
+
 function pageController(){
-	// check to see if the user is aint logged in
-	if (!isset($_SESSION['username'])) {
+	$url="Location: login.php";
+	// check to see if the user is not logged in
+	if (Auth::check()==false) {
 		// send them back to login
-		header("Location: login.php");
-		die();
+		Auth::redirect($url);
 	}
 	$data=[];
 	$data['username']=$_SESSION['username'];
@@ -16,6 +22,8 @@ function pageController(){
 }
 
 extract(pageController());
+
+
 
 ?>
 
