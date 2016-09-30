@@ -1,7 +1,5 @@
 <?php
 
-
-
 // The following code uses constants defined on the page where the code is inserted/required
 
 // Get new instance of PDO object

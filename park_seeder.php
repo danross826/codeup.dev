@@ -36,14 +36,17 @@ $dbc->exec($query);
 
 // This foreach loop loops through parks array and inserts each array into the table
 
+$stmt = $dbc->prepare('INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)');
+
 foreach ($parks as $park) {
-    $queryTwo = "INSERT INTO national_parks (name, location, date_established, area_in_acres) 
 
-    VALUES ('{$park['name']}', '{$park['location']}', '{$park['date_established']}', 
-    	{$park['area_in_acres']})";
+	$stmt->bindValue(':name', $park['name'], PDO::PARAM_STR);
+	$stmt->bindValue(':location', $park['location'], PDO::PARAM_STR);
+	$stmt->bindValue(':date_established', $park['date_established'], PDO::PARAM_STR);
+	$stmt->bindValue(':area_in_acres', $park['area_in_acres'], PDO::PARAM_STR);
+	$stmt->bindValue(':description', $park['description'], PDO::PARAM_STR);
 
-    $dbc->exec($queryTwo);
+    $stmt->execute();
 
-    echo "Inserted ID: " . $dbc->lastInsertId() . PHP_EOL;
 }
 
