@@ -7,19 +7,25 @@ require_once("../db_connect.php");
 
 require_once("../Input.php");
 
+require_once("../Park.php");
+
 // This function will bind values and create query for pulling entries from db
 
-function getParks($dbc,$offset,$limit){
-  $query = "SELECT * FROM national_parks LIMIT :limit OFFSET :offset";
-  $stmt = $dbc->prepare($query);
+function getParks($offset,$limit){
 
-  $stmt->bindValue(":limit", $limit, PDO::PARAM_INT);
-  $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
-  $stmt->execute();
+  $rows=Park::all($offset,$limit);
 
-
-  $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
   return $rows;
+}
+
+// This uses the Park model to insert or update the national_parks table with new parks
+
+function addParks($pOne,$pTwo,$pThree,$pFour,$pFive){
+
+  $park = new Park(['name'=>$pOne,'location'=>$pTwo,'date_established'=>$pThree,'area_in_acres'=>$pFour,'description'=>$pFive]);
+
+  $park->save();
+
 }
 
 // This function will prepare query and get count of parks from db
@@ -82,22 +88,11 @@ function pageController($dbc){
     }
 
     if (empty($errors)) {
-      // This is the query used for the prepare()
 
-      $query='INSERT INTO national_parks (name, location, date_established, area_in_acres, description) 
-      VALUES (:name, :location, :date_established, :area_in_acres, :description)';
-      
-      // The following function puts the values posted to the db keys to create new database
-      $stmtTwo = $dbc->prepare($query);
 
-       // replace input::get functions with variables
-      $stmtTwo->bindValue(':name', $name, PDO::PARAM_STR);
-      $stmtTwo->bindValue(':location', $location, PDO::PARAM_STR);
-      $stmtTwo->bindValue(':date_established', $date_established, PDO::PARAM_STR);
-      $stmtTwo->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_STR);
-      $stmtTwo->bindValue(':description', $description, PDO::PARAM_STR);
+      addParks($name,$location,$date_established,$area_in_acres,$description);
 
-      $stmtTwo->execute();
+
     }
   }
 
@@ -129,7 +124,7 @@ function pageController($dbc){
 
 // I'm calling the function then echoing out the html with a foreach loop
 
-  $parks = getParks($dbc,$offset,$limit);
+  $parks = getParks($offset,$limit);
 
 
 

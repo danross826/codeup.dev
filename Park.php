@@ -4,7 +4,7 @@
 // This allows us to correctly require_once Model.php, no matter where this file is being required from.
 require_once __DIR__ . '/Model.php';
 
-class User extends Model
+class Park extends Model
 {
     /** Insert a new entry into the database */
 
@@ -19,16 +19,22 @@ class User extends Model
         }
 
 
-        if (isset($this->attributes['email'])) {
-            $email = $this->attributes['email'];
+        if (isset($this->attributes['location'])) {
+            $email = $this->attributes['location'];
         }
 
         
-        if (isset($this->attributes['password'])) {
-            $password = $this->attributes['password'];
+        if (isset($this->attributes['date_established'])) {
+            $password = $this->attributes['date_established'];
+        }
+        if (isset($this->attributes['area_in_acres'])) {
+            $password = $this->attributes['area_in_acres'];
+        }
+        if (isset($this->attributes['description'])) {
+            $password = $this->attributes['description'];
         }
 
-        $stmt = self::$dbc->prepare('INSERT INTO users (name, email, password) VALUES (:name, :email, :password)');
+        $stmt = self::$dbc->prepare('INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)');
 
 
 
@@ -40,10 +46,11 @@ class User extends Model
             
         }
 
-        $stmt->execute();
+
 
         // @TODO: After the insert, add the id back to the attributes array
         //        so the object properly represents a DB record
+        $stmt->execute();
 
         $lastId=self::$dbc->lastInsertId();
 
@@ -60,17 +67,22 @@ class User extends Model
         }
 
 
-        if (isset($this->attributes['email'])) {
-            $email = $this->attributes['email'];
+        if (isset($this->attributes['location'])) {
+            $email = $this->attributes['location'];
         }
 
         
-        if (isset($this->attributes['password'])) {
-            $password = $this->attributes['password'];
+        if (isset($this->attributes['date_established'])) {
+            $password = $this->attributes['date_established'];
+        }
+        if (isset($this->attributes['area_in_acres'])) {
+            $password = $this->attributes['area_in_acres'];
+        }
+        if (isset($this->attributes['description'])) {
+            $password = $this->attributes['description'];
         }
 
-
-        $stmt = self::$dbc->prepare('UPDATE users SET name = :name, email = :email, password = :password WHERE id=:id');
+        $stmt = self::$dbc->prepare('UPDATE national_parks SET name = :name, location = :location, date_established = :date_established, area_in_acres = :area_in_acres, description = :description WHERE id=:id');
 
         // @TODO: You will need to iterate through all the attributes to build the prepared query
 
@@ -101,7 +113,7 @@ class User extends Model
 
 
 
-        $selectQuery = 'SELECT * FROM users WHERE id=:id';
+        $selectQuery = 'SELECT * FROM national_parks WHERE id=:id';
 
         $stmt = self::$dbc->prepare($selectQuery);
 
@@ -130,15 +142,24 @@ class User extends Model
      *
      * @return User[] Array of instances of the User class with attributes set to values from database
      */
-    public static function all()
+    public static function all($offset,$limit)
     {
         self::dbConnect();
 
         // @TODO: Learning from the find method, return all the matching records
 
-        $stmt = self::$dbc->query('SELECT * FROM users;');
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $results;
+        $query = "SELECT * FROM national_parks LIMIT :limit OFFSET :offset";
+        $stmt = self::$dbc->prepare($query);
+
+        var_dump($limit);
+
+        $stmt->bindValue(":limit", $limit, PDO::PARAM_INT);
+        $stmt->bindValue(":offset", $offset, PDO::PARAM_INT);
+        $stmt->execute();
+
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 
     public static function delete($id)
@@ -150,7 +171,7 @@ class User extends Model
 
 
 
-        $selectQuery = 'DELETE * FROM users WHERE id=:id';
+        $selectQuery = 'DELETE * FROM national_parks WHERE id=:id';
 
         $stmt = self::$dbc->prepare($selectQuery);
 
@@ -161,11 +182,5 @@ class User extends Model
 
     }
 }
-
-$user = new User(['name'=>'DanL','email'=>'dan@dan.com','password'=>'password']);
-
-$user->save();
-
-var_dump($user);
 
 
